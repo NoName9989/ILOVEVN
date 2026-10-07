@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo QR Code</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+
+<input id="link" type="text" placeholder="Nhập link">
+<button onclick="taoQR()">Tạo QR</button>
+
+<div id="qrcode"></div>
+
+<script>
+function taoQR() {
+    const link = document.getElementById("link").value;
+    const qr = document.getElementById("qrcode");
+
+    qr.innerHTML = "";
+
+    new QRCode(qr, {
+        text: link,
+        width: 300,
+        height: 300,
+        correctLevel: QRCode.CorrectLevel.H
+    });
+}
+</script>
+
+</body>
+</html>
